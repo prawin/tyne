@@ -14,6 +14,8 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+gem 'devise'
+
 gem 'sass-rails',   '~> 3.2.3'
 gem 'compass-rails'
 gem "jquery-rails", '~> 2.2.0'
@@ -66,7 +68,7 @@ end
 
 # Testing
 group :test, :development do
-  gem "sqlite3"
+  gem "mysql2"
   gem "rspec-rails"
   gem "capybara"
   gem "shoulda-matchers"

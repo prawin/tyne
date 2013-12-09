@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130419210703) do
+ActiveRecord::Schema.define(:version => 20131209143229) do
 
   create_table "audits", :force => true do |t|
     t.integer  "auditable_id"
@@ -79,17 +79,17 @@ ActiveRecord::Schema.define(:version => 20130419210703) do
     t.text     "description"
     t.integer  "reported_by_id"
     t.integer  "project_id"
-    t.datetime "created_at",                            :null => false
-    t.datetime "updated_at",                            :null => false
+    t.datetime "created_at",                                                           :null => false
+    t.datetime "updated_at",                                                           :null => false
     t.integer  "issue_type_id"
-    t.string   "state",             :default => "open"
+    t.string   "state",                                            :default => "open"
     t.integer  "number"
     t.integer  "issue_priority_id"
     t.integer  "assigned_to_id"
     t.integer  "sprint_id"
     t.integer  "position"
     t.integer  "sprint_position"
-    t.decimal  "estimate"
+    t.decimal  "estimate",          :precision => 10, :scale => 0
   end
 
   add_index "issues", ["issue_priority_id"], :name => "index_issues_on_issue_priority_id"
@@ -141,9 +141,9 @@ ActiveRecord::Schema.define(:version => 20130419210703) do
     t.integer  "sprint_id"
     t.integer  "issue_id"
     t.string   "type_of_change"
-    t.decimal  "scope_change"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.decimal  "scope_change",   :precision => 10, :scale => 0
+    t.datetime "created_at",                                    :null => false
+    t.datetime "updated_at",                                    :null => false
   end
 
   add_index "sprint_activities", ["issue_id"], :name => "index_sprint_activities_on_issue_id"
@@ -182,10 +182,19 @@ ActiveRecord::Schema.define(:version => 20130419210703) do
     t.string   "username"
     t.string   "email"
     t.string   "token"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
     t.string   "gravatar_id"
     t.string   "notification_email"
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
 
   add_index "users", ["uid"], :name => "index_users_on_uid"

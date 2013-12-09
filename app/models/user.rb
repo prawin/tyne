@@ -1,7 +1,10 @@
 # Represents an user
 class User < ActiveRecord::Base
-  validates :name, :uid, :token, :presence => true
-  attr_accessible :name, :username, :uid, :email, :token, :gravatar_id, :notification_email
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         
+  validates :name, :presence => true
+  attr_accessible :name, :username, :uid, :email, :token, :gravatar_id, :notification_email, :password, :password_confirmation
 
   has_many :organization_memberships
   has_many :organizations, :through => :organization_memberships

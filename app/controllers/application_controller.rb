@@ -6,14 +6,14 @@ class ApplicationController < ActionController::Base
   # Returns the current user if user is logged in or nil.
   #
   # @return User
-  def current_user
-    User.find(session[:user_id]) if session[:user_id]
-  end
+  # def current_user
+  #   User.find(session[:user_id]) if session[:user_id]
+  # end
 
   private
   def require_login
     unless current_user
-      redirect_to(login_path(:redirect_url => request.path))
+      redirect_to(new_user_session_path(:redirect_url => request.path))
     end
   end
 
