@@ -60,6 +60,7 @@ gem "rvm-capistrano"
 gem "sidekiq"
 gem "foreman"
 gem 'pg'
+gem 'paperclip'
 
 group :production do
  gem 'newrelic_rpm'

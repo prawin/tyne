@@ -8,7 +8,15 @@
       <tr>
         <td><%= f.input :notification_email %></td>
       </tr>
+      <tr>
+        <td>
+          <%= f.input :avatar %> 
+          Current avatar:
+          <%= image_tag @user.avatar.url, :width => '50px' %>
+        </td>
+      </tr>
     </table>
+    <br/>
     <%= f.button :submit, :class => "btn", :value => "Save" %>
   <% end %>
   </div>
