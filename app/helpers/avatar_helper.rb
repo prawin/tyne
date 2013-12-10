@@ -5,11 +5,12 @@ module AvatarHelper
   # @param [User] user
   # @param [Hash] options
   def avatar_url(user, options={})
-    default_url = "retro"
+    # default_url = "retro"
 
-    return default_url unless user.gravatar_id
+    # return default_url unless user.gravatar_id
 
-    "http://gravatar.com/avatar/#{user.gravatar_id}.png?s=#{options[:width]}&d=#{CGI.escape(default_url)}"
+    # "http://gravatar.com/avatar/#{user.gravatar_id}.png?s=#{options[:width]}&d=#{CGI.escape(default_url)}"
+    "/assets/default_user.jpeg"
   end
 
   # Returns a gravatar image for a particular user
@@ -19,6 +20,6 @@ module AvatarHelper
   def avatar(user, options={})
     return unless user
     options.reverse_merge!(:url => "/", :width => 24)
-    image_tag avatar_url(user, options), :class => 'avatar', :width => options[:width]
+    image_tag avatar_url(user, options), :class => 'avatar', :width => options[:width], :title => user.username
   end
 end

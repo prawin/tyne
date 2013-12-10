@@ -59,16 +59,15 @@ gem "octokit"
 gem "rvm-capistrano"
 gem "sidekiq"
 gem "foreman"
+gem 'pg'
 
 group :production do
- gem 'pg'
  gem 'newrelic_rpm'
  gem 'dalli'
 end
 
 # Testing
 group :test, :development do
-  gem "mysql2"
   gem "rspec-rails"
   gem "capybara"
   gem "shoulda-matchers"

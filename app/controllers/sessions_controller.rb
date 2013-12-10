@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
 
     user = AuthProcessor.new(auth_hash).find_or_create_user
     session[:user_id] = user.id
+    sign_in(user)
 
     redirect_to redirect_url_for_login, :notice => I18n.t("authentication.logged_in", :username => user.name)
   end

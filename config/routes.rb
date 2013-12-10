@@ -1,6 +1,6 @@
 Tyne::Application.routes.draw do
   mount Jasminerice::Engine => "/jasmine" if defined?(Jasminerice)
-  
+  devise_for :users
   get '/login', :action => "new", :as => :login, :controller => "sessions"
   get "/auth/:provider/callback", :action => "create", :as => :auth, :controller => "sessions"
   get "/auth/failure", :action => "failure", :as => :failure, :controller => "sessions"
@@ -60,6 +60,5 @@ Tyne::Application.routes.draw do
       end
     end
   end
-  devise_for :users
   root :to => "dashboards#index"
 end

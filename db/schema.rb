@@ -79,17 +79,17 @@ ActiveRecord::Schema.define(:version => 20131209143229) do
     t.text     "description"
     t.integer  "reported_by_id"
     t.integer  "project_id"
-    t.datetime "created_at",                                                           :null => false
-    t.datetime "updated_at",                                                           :null => false
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
     t.integer  "issue_type_id"
-    t.string   "state",                                            :default => "open"
+    t.string   "state",             :default => "open"
     t.integer  "number"
     t.integer  "issue_priority_id"
     t.integer  "assigned_to_id"
     t.integer  "sprint_id"
     t.integer  "position"
     t.integer  "sprint_position"
-    t.decimal  "estimate",          :precision => 10, :scale => 0
+    t.decimal  "estimate"
   end
 
   add_index "issues", ["issue_priority_id"], :name => "index_issues_on_issue_priority_id"
@@ -141,9 +141,9 @@ ActiveRecord::Schema.define(:version => 20131209143229) do
     t.integer  "sprint_id"
     t.integer  "issue_id"
     t.string   "type_of_change"
-    t.decimal  "scope_change",   :precision => 10, :scale => 0
-    t.datetime "created_at",                                    :null => false
-    t.datetime "updated_at",                                    :null => false
+    t.decimal  "scope_change"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   add_index "sprint_activities", ["issue_id"], :name => "index_sprint_activities_on_issue_id"
